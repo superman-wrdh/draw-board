@@ -1,0 +1,148 @@
+/* draw-board.component.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* 使用视口的整个高度 */
+  overflow: hidden; /* 防止出现滚动条 */
+  box-sizing: border-box; /* 边框和内边距的大小也包含在元素的总宽度和总高度中 */
+}
+
+.broder-black {
+  border: 1px solid #000;
+}
+
+.broder-white {
+  border: 1px solid #f5f1f1;
+}
+
+.header {
+  height: 60px; /* 头部高度固定 */
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 700px; /* 或其他合适的最小宽度 */
+  border-radius: 20px; /* 设置圆角半径为10像素 */
+  width: 50%;
+  position: fixed; /* 固定位置，使其悬浮 */
+  top: 10px; /* 距离顶部的初始位置 */
+  left: 15%; /* 水平居中 */
+  z-index: 1000; /* 确保在最上层 */
+
+}
+
+.header-buttons-left, .header-buttons-center, .header-buttons-right {
+  display: flex;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex: 1; /* 占据剩余空间 */
+  min-height: 0; /* 防止flex子项溢出 */
+  box-sizing: border-box;
+}
+
+.content {
+  flex-grow: 1; /* 自动填充剩余空间 */
+  overflow: auto; /* 如果内容超过视图，显示滚动条 */
+  box-sizing: border-box;
+}
+
+.sidebar {
+  width: 200px; /* 侧边栏宽度固定 */
+  flex-shrink: 0; /* 防止侧边栏缩小 */
+  box-sizing: border-box;
+}
+
+
+.header-buttons-right {
+  margin-left: auto; /* Pushes buttons to the right */
+  display: flex;
+  align-items: center;
+}
+
+.header-buttons-left {
+  margin-right: auto; /* Pushes buttons to the right */
+  display: flex;
+  align-items: center;
+}
+
+/* 可以为中间按钮添加额外样式 */
+.header-buttons-center {
+  flex-grow: 1; /* 让中间部分占据多余空间 */
+  justify-content: center; /* 中间按钮居中 */
+}
+
+#draw-rect, #draw-circle, #drag, #axis, #axisNumber, #grid,#curve,#AxisTop,#AxisLeft {
+  border-radius: 50%; /* 圆形按钮 */
+  width: 40px; /* 设置宽度和高度 */
+  height: 40px;
+  border: none; /* 可选：移除边框 */
+  font-size: 20px; /* 字体大小 */
+  margin: 0 5px; /* 按钮间距 */
+  cursor: pointer; /* 鼠标手势 */
+}
+
+
+#zoomInButton, #zoomOutButton, #reset, #export, #changeStyle {
+  border-radius: 50%; /* 圆形按钮 */
+  width: 40px; /* 设置宽度和高度 */
+  height: 40px;
+  border: none; /* 可选：移除边框 */
+  font-size: 20px; /* 字体大小 */
+  margin: 0 5px; /* 按钮间距 */
+  cursor: pointer; /* 鼠标手势 */
+}
+
+#zoomInButton:hover, #zoomOutButton:hover, #reset:hover, #export:hover, #changeStyle:hover,#AxisTopLeft:hover {
+  background-color: #add8e6; /* 浅蓝色背景，hover状态 */
+}
+
+#zoomInButton:active, #zoomOutButton:active, #reset:active, export:active, #changeStyle:active,#curve:active,#AxisTopLeft:active {
+  background-color: #5858f3; /* 蓝色背景，active状态即点击时 */
+}
+
+#draw-rect:hover, #draw-circle:hover, #axis:hover, #axisNumber:hover, #grid:hover,#curve:hover {
+  background-color: #6587bd; /* 浅蓝色背景，hover状态 */
+}
+
+#draw-rect:active, #draw-circle:active, #drag:active, #axis:active, #axisNumber:active, #grid:active {
+  background-color: #3267BB; /* 蓝色背景，active状态即点击时 */
+}
+
+.canDrag {
+  background-color: #3267BB; /* 蓝色背景，active状态即点击时 */
+}
+
+.showAxis {
+  background-color: #3267BB; /* 蓝色背景，active状态即点击时 */
+}
+
+.showAxisNumber {
+  background-color: #3267BB; /* 蓝色背景，active状态即点击时 */
+}
+
+.showGrid {
+  background-color: #3267BB; /* 蓝色背景，active状态即点击时 */
+}
+
+.light {
+  background-color: #FFFFFF;
+  border: 1px solid #AAAAAA;
+}
+
+.dark {
+  background-color: #323131;
+  border: 1px solid #FFFFFF;
+}
+
+.moon {
+  content: '🌙'; /* 月亮样式 */
+  background-color: black;
+}
+
+.sun {
+  content: '☀️'; /* 太阳样式 */
+}

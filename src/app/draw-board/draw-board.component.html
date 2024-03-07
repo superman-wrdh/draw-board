@@ -1,0 +1,37 @@
+<!--draw-board.component.html-->
+<div class="container">
+  <!--A: 满屏100%，高度80-->
+  <div class="header" #header [ngClass]="config.colorStyle=='light'?'light':'dark'">
+    <div class="header-buttons-left">
+      <button id="draw-rect" (click)="drawReact()"> 🟦</button>
+      <button id="draw-circle" (click)="drawCircle()"> 🟣</button>
+    </div>
+
+    <div class="header-buttons-center">
+      <button id="drag" (click)="setDrag()" [ngClass]="{'canDrag': config.dragAble}"> *️⃣</button>
+      <button id="axis" (click)="setAxisIsShow()" [ngClass]="{'showAxis': showAxis}"> 📏</button>
+      <button id="axisNumber" (click)="setAxisIsShowNumber()" [ngClass]="{'showAxisNumber': showAxisNumber}"> 🔢</button>
+      <button id="grid" (click)="setGridIsShow()" [ngClass]="{'showGrid': showGrid}"> 🌐</button>
+      <button id="curve" (click)="setCurveIsShow()" [ngClass]="{'showGrid': showCurve}"> 📈 </button>
+      <button id="AxisLeft" (click)="setLeftAxisIsShow()" [ngClass]="{'showGrid': showAxisLeftNumber}"> ╟ </button>
+      <button id="AxisTop" (click)="setTopAxisIsShow()" [ngClass]="{'showGrid': showAxisTopNumber}"> ╦ </button>
+    </div>
+
+    <div class="header-buttons-right">
+      <button id="zoomInButton" (click)="zoomOut()">➕</button>
+      <button id="zoomOutButton" (click)="zoomIn()">➖</button>
+      <button id="reset" (click)="resetConf()">🔄</button>
+      <button id="export" (click)="exportCanvasToImage()">📥</button>
+      <button id="changeStyle" (click)="changeStyle()" [ngClass]="config.colorStyle=='light'?'sun':'moon'">
+        {{ config.colorStyle == 'light' ? '☀️' : '🌙' }}
+      </button>
+    </div>
+  </div>
+  <div class="main" [ngClass]="config.colorStyle=='light'?'light':'dark'">
+    <!--B: 满屏滚动部分，自适应-->
+    <div class="content broder" #contentArea id="contentArea"
+         [ngClass]="config.colorStyle=='light'?'broder-black':'broder-white'"></div>
+    <!--C: 宽200 固定边栏部分-->
+    <div class="sidebar"></div>
+  </div>
+</div>
